@@ -82,6 +82,7 @@ public class Ex4 {
 
                 if (event.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
                     System.out.println("Deleted: " + event.context());
+                    System.out.println(Files.exists(Paths.get(this.directory + event.context().toString())));
                     files.remove(event.context().toString());
                     continue;
                 }
