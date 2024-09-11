@@ -1,21 +1,44 @@
 package org.example;
 
-import org.example.prac2.Ex1;
-import org.example.prac2.Ex2;
-import org.example.prac2.Ex3;
-import org.example.prac2.Ex4;
+import org.example.prac1.P1Ex1;
+import org.example.prac1.P1Ex2;
+import org.example.prac2.P2Ex1;
+import org.example.prac2.P2Ex2;
+import org.example.prac2.P2Ex3;
+import org.example.prac2.P2Ex4;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
-        String directory = "src/main/java/org/example/prac2/";
+    public static void main(String[] args) throws IOException, InterruptedException, ExecutionException, NoSuchMethodException {
+        String practice = "1";
 
-//        new Ex1(directory).execute();
-//        new Ex2(directory).execute();
-//        new Ex3(directory).execute();
-        new Ex4(directory).execute();
+        switch (practice) {
+            case "1":
+                System.out.println("=============== Ex1 ===============");
+                new P1Ex1().execute();
+                System.out.println("=============== Ex2 ===============");
+                new P1Ex2().execute();
+                break;
+            case "2":
+                String directory = "src/main/java/org/example/prac2/";
+                System.out.println("=============== Ex1 ===============");
+                new P2Ex1(directory).execute();
+                System.out.println("=============== Ex2 ===============");
+                new P2Ex2(directory).execute();
+                System.out.println("=============== Ex3 ===============");
+                new P2Ex3(directory).execute();
+                System.out.println("=============== Ex4 ===============");
+                new P2Ex4(directory).execute();
+                break;
+            default:
+                System.out.println("Invalid practice");
+                break;
+        }
+
+
     }
 }

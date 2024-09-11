@@ -1,6 +1,7 @@
 package org.example.prac2;
 
 import org.apache.commons.io.FileUtils;
+import org.example.Tester;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,10 +11,10 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Ex2 {
+public class P2Ex2 {
     private final String directory;
 
-    public Ex2(String directory) {
+    public P2Ex2(String directory) {
         this.directory = directory;
     }
 
@@ -49,7 +50,7 @@ public class Ex2 {
         Files.copy(Paths.get(this.directory + source), Paths.get(this.directory + target));
     }
 
-    public void execute() throws IOException {
+    public void execute() throws IOException, NoSuchMethodException {
         long startTime, endTime, totalTime, memoryUsage;
         Runtime runtime;
 
@@ -61,44 +62,30 @@ public class Ex2 {
             }
         }
 
-        startTime = System.nanoTime();
-        copyFileStreams("100MB.bin", filenames[0]);
-        endTime = System.nanoTime();
-        totalTime = endTime - startTime;
-        runtime = Runtime.getRuntime();
-        memoryUsage = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("FileInputStream/FileOutputStream");
-        System.out.println("Time: " + totalTime + " ns");
-        System.out.println("Memory: " + memoryUsage + "\n");
+        Tester tester = new Tester();
 
-        startTime = System.nanoTime();
-        copyFileChannels("100MB.bin", filenames[1]);
-        endTime = System.nanoTime();
-        totalTime = endTime - startTime;
-        runtime = Runtime.getRuntime();
-        memoryUsage = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("FileChannel");
-        System.out.println("Time: " + totalTime + " ns");
-        System.out.println("Memory: " + memoryUsage + "\n");
+        tester.testFunction("copyFileStreams", () -> {
+            copyFileStreams("100MB.bin", filenames[0]);
+        });
 
-        startTime = System.nanoTime();
-        copyFileApacheIO("100MB.bin", filenames[2]);
-        endTime = System.nanoTime();
-        totalTime = endTime - startTime;
-        runtime = Runtime.getRuntime();
-        memoryUsage = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Apache Commons IO");
-        System.out.println("Time: " + totalTime + " ns");
-        System.out.println("Memory: " + memoryUsage + "\n");
+        tester.testFunction("copyFileStreams", () -> {
+            copyFileChannels("100MB.bin", filenames[1]);
+        });
 
-        startTime = System.nanoTime();
-        copyFileFiles("100MB.bin", filenames[3]);
-        endTime = System.nanoTime();
-        totalTime = endTime - startTime;
-        runtime = Runtime.getRuntime();
-        memoryUsage = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("Files class");
-        System.out.println("Time: " + totalTime + " ns");
-        System.out.println("Memory: " + memoryUsage + "\n");
+        tester.testFunction("copyFileStreams", () -> {
+            try {
+                copyFileApacheIO("100MB.bin", filenames[2]);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        tester.testFunction("Files class", () -> {
+            try {
+                copyFileFiles("100MB.bin", filenames[3]);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

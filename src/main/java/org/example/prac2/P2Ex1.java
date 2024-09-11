@@ -5,10 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Ex1 {
+public class P2Ex1 {
     private final String directory;
 
-    public Ex1(String directory) {
+    public P2Ex1(String directory) {
         this.directory = directory;
     }
 

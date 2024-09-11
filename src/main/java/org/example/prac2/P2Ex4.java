@@ -7,11 +7,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class Ex4 {
+public class P2Ex4 {
     private final HashMap<String, String> files = new HashMap<String, String>();
     private final String directory;
 
-    public Ex4(String directory) {
+    public P2Ex4(String directory) {
         this.directory = directory;
     }
 

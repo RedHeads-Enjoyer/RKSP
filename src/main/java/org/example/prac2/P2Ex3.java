@@ -1,15 +1,14 @@
 package org.example.prac2;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class Ex3 {
+public class P2Ex3 {
     private final String directory;
 
-    public Ex3(String directory) {
+    public P2Ex3(String directory) {
         this.directory = directory;
     }
 
