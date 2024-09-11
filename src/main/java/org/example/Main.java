@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.prac1.P1Ex1;
 import org.example.prac1.P1Ex2;
+import org.example.prac1.P1Ex3;
 import org.example.prac2.P2Ex1;
 import org.example.prac2.P2Ex2;
 import org.example.prac2.P2Ex3;
@@ -18,10 +19,12 @@ public class Main {
 
         switch (practice) {
             case "1":
-                System.out.println("=============== Ex1 ===============");
-                new P1Ex1().execute();
-                System.out.println("=============== Ex2 ===============");
-                new P1Ex2().execute();
+//                System.out.println("=============== Ex1 ===============");
+//                new P1Ex1().execute();
+//                System.out.println("=============== Ex2 ===============");
+//                new P1Ex2().execute();
+                System.out.println("=============== Ex3 ===============");
+                new P1Ex3().execute();
                 break;
             case "2":
                 String directory = "src/main/java/org/example/prac2/";

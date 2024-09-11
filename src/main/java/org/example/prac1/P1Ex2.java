@@ -1,11 +1,7 @@
 package org.example.prac1;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.*;
-
-import static java.lang.Thread.sleep;
 
 public class P1Ex2 {
     public void execute() throws ExecutionException, InterruptedException {

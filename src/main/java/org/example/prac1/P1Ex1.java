@@ -2,7 +2,6 @@ package org.example.prac1;
 
 import org.example.Tester;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -69,9 +68,9 @@ public class P1Ex1 {
 
     public Integer forkJoinMin(int[] list) {
         class ForkMin extends RecursiveTask<Integer> {
-            private int[] list;
-            private int start;
-            private int end;
+            private final int[] list;
+            private final int start;
+            private final int end;
 
             ForkMin(int[] list, int start, int end) {
                 this.list = list;
@@ -111,7 +110,7 @@ public class P1Ex1 {
         return forkJoinPool.invoke(forkMin);
     }
 
-    public void execute() throws ExecutionException, InterruptedException, NoSuchMethodException {
+    public void execute() {
         int[] randomArray = new int[this.n];
         Random random = new Random(this.n);
 
