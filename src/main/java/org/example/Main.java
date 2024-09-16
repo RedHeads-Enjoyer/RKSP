@@ -7,6 +7,7 @@ import org.example.prac2.P2Ex1;
 import org.example.prac2.P2Ex2;
 import org.example.prac2.P2Ex3;
 import org.example.prac2.P2Ex4;
+import org.example.prac3.P3Ex1;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,14 +16,14 @@ import java.util.concurrent.ExecutionException;
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException, NoSuchMethodException {
-        String practice = "1";
+        String practice = "3";
 
         switch (practice) {
             case "1":
-//                System.out.println("=============== Ex1 ===============");
-//                new P1Ex1().execute();
-//                System.out.println("=============== Ex2 ===============");
-//                new P1Ex2().execute();
+                System.out.println("=============== Ex1 ===============");
+                new P1Ex1().execute();
+                System.out.println("=============== Ex2 ===============");
+                new P1Ex2().execute();
                 System.out.println("=============== Ex3 ===============");
                 new P1Ex3().execute();
                 break;
@@ -37,6 +38,9 @@ public class Main {
                 System.out.println("=============== Ex4 ===============");
                 new P2Ex4(directory).execute();
                 break;
+            case "3":
+                System.out.println("=============== Ex1 ===============");
+                new P3Ex1().execute();
             default:
                 System.out.println("Invalid practice");
                 break;
