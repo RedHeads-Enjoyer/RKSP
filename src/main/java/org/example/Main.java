@@ -9,6 +9,8 @@ import org.example.prac2.P2Ex3;
 import org.example.prac2.P2Ex4;
 import org.example.prac3.P3Ex1;
 import org.example.prac3.P3Ex2;
+import org.example.prac3.P3Ex3;
+import org.example.prac3.P4Ex4;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -42,10 +44,14 @@ public class Main {
             case "3":
 //                System.out.println("=============== Ex1 ===============");
 //                new P3Ex1().execute();
-                System.out.println("=============== Ex2 ===============");
-                new P3Ex2().execute();
+//                System.out.println("=============== Ex2 ===============");
+//                new P3Ex2().execute();
+//                System.out.println("=============== Ex3 ===============");
+//                new P3Ex3().execute();
+                System.out.println("=============== Ex4 ===============");
+                new P4Ex4().execute();
+                break;
             default:
-                System.out.println("Invalid practice");
                 break;
         }
 
